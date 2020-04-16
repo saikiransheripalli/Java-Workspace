@@ -61,48 +61,47 @@ public class Game {
 		int choice[] = new int[4];
 		int result[][] =new int[4][4];
 		int finalresult[][] =new int[4][4];
-		// TODO Auto-generated method stub
-System.out.println("Welcome to RockPaperScissors Game !!\n"+"It's a four player's Game........\n");
-Game gameObj = new Game();
+		
+		System.out.println("Welcome to RockPaperScissors Game !!\n"+"It's a four player's Game........\n");
+		Game gameObj = new Game();
 
-for(int p=0;p<4;p++){
-	player[p] = gameObj.name(p);
+		for(int p=0;p<4;p++){
+			player[p] = gameObj.name(p);
+		}
+
+		//BELOW STATEMENTS ARE TO VERIFY MYSELF......... WHETHER MY CODE IS RIGHT OR WRONG
+
+		/*
+		System.out.print("players list\n------------\n");
+		for(int p=0;p<4;p++){
+		System.out.print(player[p]+"\t"+choice[p]+"\n");
+		}*/
+
+		for(int repeat = 1 ; repeat <= 50; repeat++){
+			
+			for(int p=0;p<4;p++){
+			choice[p] = gameObj.choice(player[p]);
+			}
+			
+			for(int i = 0 ; i < 4 ; i++){
+				for(int j = 0 ; j < 4 ; j++){
+					result[i][j]  = gameObj.compare(choice[i], choice[j]);
+					finalresult[i][j]+=result[i][j];
+				}
+			}
+
+			System.out.println("\n---------------------------\nResult\n---------------------------");
+			System.out.print("\n-------------------------------------------------\nplayer Against        |"+player[0]+"|\t|"+player[1]+"|\t|"+player[2]+"|\t|"+player[3]+"|\n-------------------------------------------------\n");
+
+			for(int i = 0 ; i < 4 ; i++){
+				System.out.print("player wins |"+player[i]+"\t\t");
+				for(int j = 0 ; j < 4 ; j++){
+					System.out.print(finalresult[i][j]+"\t");
+				}
+				System.out.println();
+			}
+		}
 	}
-
-//BELOW STATEMENTS ARE TO VERIFY MYSELF......... WHETHER MY CODE IS RIGHT OR WRONG
-
-/*
-System.out.print("players list\n------------\n");
-for(int p=0;p<4;p++){
-System.out.print(player[p]+"\t"+choice[p]+"\n");
-}*/
-
-for(int repeat = 1 ; repeat <= 50; repeat++){
-	
-	for(int p=0;p<4;p++){
-	choice[p] = gameObj.choice(player[p]);
-	}
-	
-for(int i = 0 ; i < 4 ; i++){
-	for(int j = 0 ; j < 4 ; j++){
-		result[i][j]  = gameObj.compare(choice[i], choice[j]);
-		finalresult[i][j]+=result[i][j];
-	}
-}
-
-System.out.println("\n---------------------------\nResult\n---------------------------");
-System.out.print("\n-------------------------------------------------\nplayer Against        |"+player[0]+"|\t|"+player[1]+"|\t|"+player[2]+"|\t|"+player[3]+"|\n-------------------------------------------------\n");
-
-for(int i = 0 ; i < 4 ; i++){
-	System.out.print("player wins |"+player[i]+"\t\t");
-	for(int j = 0 ; j < 4 ; j++){
-		System.out.print(finalresult[i][j]+"\t");
-	}
-	System.out.println();
-}
-
-}
-}
 }
 	
 	
